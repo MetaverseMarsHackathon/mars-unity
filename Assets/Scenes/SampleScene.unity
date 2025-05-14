@@ -1380,6 +1380,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelAnimator: {fileID: 2129061860}
+--- !u!114 &1231145275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231145266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4846916526b9c874d830098697c60970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quizUIPrefab: {fileID: 6001800504622105198, guid: e5786ce59f6991542986545ce7e14dde, type: 3}
+  quizData:
+    description: 
+    question: 
+    answer: 
+  spawnDistanceFromCamera: 2.5
 --- !u!1 &1325886582 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6385560359065562335, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
@@ -7379,6 +7397,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2087014979796169411, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.93
+      objectReference: {fileID: 0}
     - target: {fileID: 6307790922386783322, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
       propertyPath: m_LocalPosition.y
       value: 29.69
@@ -7489,6 +7511,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1741711252904688848, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1231145271}
+    - targetCorrespondingSourceObject: {fileID: 1741711252904688848, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1231145275}
   m_SourcePrefab: {fileID: 100100000, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
