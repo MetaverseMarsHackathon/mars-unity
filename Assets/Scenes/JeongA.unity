@@ -681,6 +681,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 991537573319704206, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
+      propertyPath: currentQuestionIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1040100384285547847, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -737,6 +741,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.762
       objectReference: {fileID: 0}
+    - target: {fileID: 7562886999671987852, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
+      propertyPath: currentQuestionIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7736157680513001702, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -744,6 +752,10 @@ PrefabInstance:
     - target: {fileID: 8589871305537626030, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
       propertyPath: m_Name
       value: Maps
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215890506287956605, guid: da4f51f943943af41940b91cf5f314cf, type: 3}
+      propertyPath: currentQuestionIndex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

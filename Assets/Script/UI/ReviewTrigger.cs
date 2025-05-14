@@ -26,15 +26,21 @@ public class ReviewTrigger : MonoBehaviour
 
     private IEnumerator WaitProcess()
     {
+        Debug.Log("WaitProcess");
         currentUI = Instantiate(reviewUIPrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
 
-        yield return new WaitWhile(() => string.IsNullOrEmpty(Review.result));
+        review.ReviewStart();
+
+        yield return new WaitWhile(() =>
+        {
+            Debug.Log($"Wait {Review.result}");
+            return string.IsNullOrEmpty(Review.result);
+        });
         
         ReviewUI reviewUI = currentUI.GetComponent<ReviewUI>();
         if (reviewUI != null)
             reviewUI.SetDescription(Review.result);
 
-        review.ReviewStart();
         Debug.Log(Review.result);
     }
 }

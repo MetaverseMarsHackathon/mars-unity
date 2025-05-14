@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using TMPro;
 using System;
+using System.Collections;
+using System.Text; 
 
 public class QuizUI : MonoBehaviour
 {
@@ -18,8 +21,11 @@ public class QuizUI : MonoBehaviour
     public Button buttonO;
     public Button buttonX;
     public Button nextButton;
-
+    
+    [Header("Quiz Data")]
     private string correctAnswer;
+    public int currentQuestionIndex;
+    
     private Action onCorrectAnswer;  // ✅ 콜백 저장
 
     public void SetQuiz(QuizData data, Action onCorrect = null)
@@ -43,6 +49,8 @@ public class QuizUI : MonoBehaviour
         nextButton.onClick.AddListener(ShowQuestionPanel);
         buttonO.onClick.AddListener(() => CheckAnswer("O"));
         buttonX.onClick.AddListener(() => CheckAnswer("X"));
+
+        currentQuestionIndex = gameObject.GetComponent<QuizTrigger>().currentQuestionIndex; 
     }
     
     void ShowQuestionPanel()
@@ -62,10 +70,56 @@ public class QuizUI : MonoBehaviour
 
         buttonO.gameObject.SetActive(false);
         buttonX.gameObject.SetActive(false);
-
+        
         if (isCorrect)
         {
             onCorrectAnswer?.Invoke();  // ✅ 정답이면 액션 실행
+        }
+        
+        StartCoroutine(SendAnswer(currentQuestionIndex, questionText.text, selected, isCorrect));
+    }
+    
+    [System.Serializable]
+    public class AnswerData
+    {
+        public int questionNumber;
+        public string questionText;
+        public string userAnswer;
+        public bool correct;
+    }
+    
+    IEnumerator SendAnswer(int questionNumber, string questionText, string userAnswer, bool correct)
+    {
+        string sessionId = (LoginManager.SessionId).ToString();
+        string url = $"http://172.16.16.170:8081/question/{sessionId}/response";
+        
+        Debug.Log(url);
+
+        AnswerData data = new AnswerData
+        {
+            questionNumber = questionNumber,
+            questionText = questionText,
+            userAnswer = userAnswer,
+            correct = correct
+        };
+
+        string jsonData = JsonUtility.ToJson(data);
+
+        UnityWebRequest request = new UnityWebRequest(url, "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("서버 응답 성공: " + request.downloadHandler.text);
+        }
+        else
+        {
+            Debug.LogError("서버 요청 실패: " + request.error);
         }
     }
 }

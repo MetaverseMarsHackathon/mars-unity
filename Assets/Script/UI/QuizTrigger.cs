@@ -10,6 +10,8 @@ public class QuizTrigger : MonoBehaviour
     private GameObject currentUI;
     public float spawnDistanceFromCamera = 2.5f;
 
+    public int currentQuestionIndex;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && currentUI == null)
