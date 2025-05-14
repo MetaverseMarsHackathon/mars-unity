@@ -3,38 +3,37 @@ using UnityEngine;
 public class QuizTrigger : MonoBehaviour
 {
     public GameObject quizUIPrefab;
-    public QuizData quizData; // 에디터에서 설정 또는 런타임에 불러오기
+    public QuizData quizData;
+
+    public GameObject fixObject;  // ✅ 정답 후 보여줄 오브젝트 또는 실행할 행동
 
     private GameObject currentUI;
-    
-    // UI가 플레이어 앞 몇 미터에 생성될지 설정
     public float spawnDistanceFromCamera = 2.5f;
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"OnTriggerEnter {other.name}");
         if (other.CompareTag("Player") && currentUI == null)
         {
-            Debug.Log($"OnTriggerEnter {other.name}");
-            // 카메라 Transform 얻기
             Transform cameraTransform = Camera.main.transform;
 
             Vector3 spawnPosition = cameraTransform.position + cameraTransform.forward * spawnDistanceFromCamera;
-            float minY = 0.03f;
-            // Y값을 카메라보다 살짝 아래로 보정 (눈 아프지 않게!)
-            spawnPosition.y = cameraTransform.position.y - minY;
+            spawnPosition.y = cameraTransform.position.y - 0.03f;
 
             currentUI = Instantiate(quizUIPrefab, spawnPosition, Quaternion.identity);
-            currentUI.SetActive(true); 
-            currentUI.transform.LookAt(cameraTransform);
-            Vector3 direction = cameraTransform.position - transform.position;
-            direction.y = 0; 
-            currentUI.transform.rotation = Quaternion.LookRotation(-direction);
-            
-            //currentUI.transform.rotation = Quaternion.LookRotation(currentUI.transform.position - cameraTransform.position); // UI가 카메라를 바라보도록
+            currentUI.SetActive(true);
 
+            // UI가 플레이어를 바라보게 회전
+            Vector3 direction = cameraTransform.position - transform.position;
+            direction.y = 0;
+            currentUI.transform.rotation = Quaternion.LookRotation(-direction);
+
+            // ✅ 퀴즈 UI에 콜백 포함해서 전달
             var quizUI = currentUI.GetComponent<QuizUI>();
-            quizUI.SetQuiz(quizData);
+            quizUI.SetQuiz(quizData, () => {
+                Debug.Log("정답! 지정된 오브젝트 또는 애니메이션 실행");
+                if (fixObject != null)
+                    fixObject.SetActive(true); // 애니메이션 트리거 or 오브젝트 활성화
+            });
         }
     }
 
