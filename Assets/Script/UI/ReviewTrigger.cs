@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ReviewTrigger : MonoBehaviour
@@ -9,8 +10,8 @@ public class ReviewTrigger : MonoBehaviour
     //public string reviewText = "자동 생성되는 복습 텍스트입니다.";
 
     public string reviewText =
-        "# 화성 탐사 복습 노트"; 
-    
+        "# 화성 탐사 복습 노트";
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,21 +19,22 @@ public class ReviewTrigger : MonoBehaviour
         if (other.CompareTag("Player") && currentUI == null)
         {
             Debug.Log("플레이어와 충돌했음");
-            currentUI = Instantiate(reviewUIPrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
 
-            //ReviewUI reviewUI = currentUI.GetComponent<ReviewUI>();
-            //reviewUI.SetDescription(reviewText);
-            
-
-            Invoke("Time",5f);
-            review.ReviewStart();
-            Debug.Log(Review.result);
+            StartCoroutine(WaitProcess());
         }
     }
 
-    void Time()
+    private IEnumerator WaitProcess()
     {
+        currentUI = Instantiate(reviewUIPrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+
+        yield return new WaitWhile(() => string.IsNullOrEmpty(Review.result));
+        
         ReviewUI reviewUI = currentUI.GetComponent<ReviewUI>();
-        reviewUI.SetDescription(Review.result);
+        if (reviewUI != null)
+            reviewUI.SetDescription(Review.result);
+
+        review.ReviewStart();
+        Debug.Log(Review.result);
     }
 }
