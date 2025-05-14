@@ -27,12 +27,17 @@ public class QuizUI : MonoBehaviour
     public int currentQuestionIndex;
     
     private Action onCorrectAnswer;  // ✅ 콜백 저장
+    
+    //[Header("Audio")]
+    //public AudioClip clickSound;           // ✅ 효과음 클립
+    //private AudioSource audioSource;       // ✅ 효과음 재생기
 
-    public void SetQuiz(QuizData data, Action onCorrect = null)
+    public void SetQuiz(QuizData data, int index, Action onCorrect = null)
     {
         descriptionText.text = data.description;
         questionText.text = data.question;
         correctAnswer = data.answer;
+        currentQuestionIndex = index;
         onCorrectAnswer = onCorrect;  // ✅ 외부에서 전달된 액션 저장
 
         panelDescription.SetActive(true);
@@ -49,8 +54,8 @@ public class QuizUI : MonoBehaviour
         nextButton.onClick.AddListener(ShowQuestionPanel);
         buttonO.onClick.AddListener(() => CheckAnswer("O"));
         buttonX.onClick.AddListener(() => CheckAnswer("X"));
-
-        currentQuestionIndex = gameObject.GetComponent<QuizTrigger>().currentQuestionIndex; 
+        
+        //audioSource = GetComponent<AudioSource>(); 
     }
     
     void ShowQuestionPanel()
@@ -62,6 +67,12 @@ public class QuizUI : MonoBehaviour
 
     void CheckAnswer(string selected)
     {
+        // ✅ 버튼 누를 때 효과음 재생
+        /*if (clickSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clickSound);
+        }*/
+        
         bool isCorrect = selected == correctAnswer;
 
         feedbackText.text = isCorrect ? "정답입니다!" : "오답입니다.";
@@ -75,7 +86,7 @@ public class QuizUI : MonoBehaviour
         {
             onCorrectAnswer?.Invoke();  // ✅ 정답이면 액션 실행
         }
-        
+        //currentQuestionIndex = gameObject.GetComponent<QuizTrigger>().currentQuestionIndex; 
         StartCoroutine(SendAnswer(currentQuestionIndex, questionText.text, selected, isCorrect));
     }
     

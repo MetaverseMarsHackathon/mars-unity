@@ -31,7 +31,7 @@ public class QuizTrigger : MonoBehaviour
 
             // ✅ 퀴즈 UI에 콜백 포함해서 전달
             var quizUI = currentUI.GetComponent<QuizUI>();
-            quizUI.SetQuiz(quizData, () => {
+            quizUI.SetQuiz(quizData, currentQuestionIndex, () => {
                 Debug.Log("정답! 지정된 오브젝트 또는 애니메이션 실행");
                 if (fixObject != null)
                     fixObject.SetActive(true); // 애니메이션 트리거 or 오브젝트 활성화
