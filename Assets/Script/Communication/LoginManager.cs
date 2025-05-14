@@ -13,6 +13,7 @@ public  class LoginManager : MonoBehaviour
     public void LoginStart()
     {
         StartCoroutine(Login("test", "test"));
+        Debug.Log("버튼 클릭됨");
     }
 
     IEnumerator Login(string username, string password)
