@@ -1336,7 +1336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ef87e68893dfc4c96f882a2531fab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fix: {fileID: 0}
   panelDescription: {fileID: 5984865863393371471}
   panelQuestion: {fileID: 3403066339441305601}
   descriptionText: {fileID: 903404544527134104}
@@ -1345,6 +1344,7 @@ MonoBehaviour:
   buttonO: {fileID: 5161859410334833788}
   buttonX: {fileID: 8234753315088401298}
   nextButton: {fileID: 1389025275590271178}
+  currentQuestionIndex: 0
 --- !u!1 &6111648707966331904
 GameObject:
   m_ObjectHideFlags: 0

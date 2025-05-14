@@ -5,6 +5,6 @@ public class UIManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("JeongA");
+        SceneManager.LoadScene("SampleScene");
     }
 }
