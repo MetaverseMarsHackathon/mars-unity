@@ -10,7 +10,7 @@ public  class LoginManager : MonoBehaviour
 
     string loginUrl = "http://172.16.16.170:8081/auth/login";
 
-    void Start()
+    void LoginStart()
     {
         StartCoroutine(Login("test", "test"));
     }
