@@ -5,13 +5,17 @@ using Newtonsoft.Json;
 
 public class Complete : MonoBehaviour
 {
-    private static int id = LoginManager.SessionId;
-    string scoreUrl = "http://172.16.16.170:8081/game/"+id+"/complete"; // 여기에 실제 서버 주소 넣기
+    private int id;
+    private string scoreUrl; // 여기에 실제 서버 주소 넣기
+    private string baseurl = "http://172.16.16.170:8081/game/";
     private int _time = 300; //여기 실제 타임 넘겨주면 됩니다.
     
-    void EndButton()
+    public void EndButton()
     {
+        id = LoginManager.SessionId;
+        scoreUrl =  baseurl + id + "/complete";
         StartCoroutine(SendCompletionTime(_time)); // 테스트용으로 0초 전달
+        print(scoreUrl);
     }
 
     IEnumerator SendCompletionTime(int completionTime)

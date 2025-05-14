@@ -10,7 +10,7 @@ public  class LoginManager : MonoBehaviour
 
     string loginUrl = "http://172.16.16.170:8081/auth/login";
 
-    void LoginStart()
+    public void LoginStart()
     {
         StartCoroutine(Login("test", "test"));
     }
@@ -37,6 +37,7 @@ public  class LoginManager : MonoBehaviour
         {
             var response = JsonConvert.DeserializeObject<LoginResponse>(request.downloadHandler.text);
             SessionId = response.sessionId;
+            Review.id = response.sessionId;
             Debug.Log($"[Login Success] Session ID: {SessionId}");
             
         }
