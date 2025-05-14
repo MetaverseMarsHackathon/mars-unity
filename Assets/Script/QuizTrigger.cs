@@ -20,9 +20,9 @@ public class QuizTrigger : MonoBehaviour
             Transform cameraTransform = Camera.main.transform;
 
             Vector3 spawnPosition = cameraTransform.position + cameraTransform.forward * spawnDistanceFromCamera;
-            float minY = 1.2f;
-            // Y값 보정 
-            spawnPosition.y = Mathf.Max(spawnPosition.y, minY);
+            float minY = 0.03f;
+            // Y값을 카메라보다 살짝 아래로 보정 (눈 아프지 않게!)
+            spawnPosition.y = cameraTransform.position.y - minY;
 
             currentUI = Instantiate(quizUIPrefab, spawnPosition, Quaternion.identity);
             currentUI.SetActive(true); 
