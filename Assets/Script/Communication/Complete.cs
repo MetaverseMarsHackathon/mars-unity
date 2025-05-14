@@ -2,15 +2,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
-
+using TMPro;
 public class Complete : MonoBehaviour
 {
     private int id;
     private string scoreUrl; // 여기에 실제 서버 주소 넣기
     private string baseurl = "http://172.16.16.170:8081/game/";
-    private int _time = 300; //여기 실제 타임 넘겨주면 됩니다.
-    
-    public void EndButton()
+    private int _time = 300; //여기 실제 타임 넘겨주면 됩니다.z
+    public TMP_Text score;
+    public int rescore;
+    private void Start()
     {
         id = LoginManager.SessionId;
         scoreUrl =  baseurl + id + "/complete";
@@ -43,6 +44,8 @@ public class Complete : MonoBehaviour
             // 응답 데이터 파싱
             ScoreResponse response = JsonConvert.DeserializeObject<ScoreResponse>(request.downloadHandler.text);
             Debug.Log($"Score: {response.score}, Correct: {response.correctAnswers}/{response.totalQuestions}, Time: {response.completionTime}");
+            score.text =  response.score.ToString();
+            
         }
         else
         {

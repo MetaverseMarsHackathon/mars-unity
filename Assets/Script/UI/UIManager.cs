@@ -8,3 +8,4 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 }
+
