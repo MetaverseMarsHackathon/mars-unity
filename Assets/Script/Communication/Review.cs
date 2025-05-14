@@ -6,12 +6,11 @@ using System.Collections.Generic;
 
 public class Review : MonoBehaviour
 {
-    public static int id;
     private string reviewUrl;
 
     public void ReviewStart() // 리뷰가 필요할 시점에 이거 불러주시면 됩니다. 
     {
-        reviewUrl = "http://172.16.16.170:8081/api/game/"+id+"/review"; 
+        reviewUrl = "http://172.16.16.170:8081/api/game/"+LoginManager.SessionId+"/review"; 
         StartCoroutine(GetReview());
         print(reviewUrl);
     }

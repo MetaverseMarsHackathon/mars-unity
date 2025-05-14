@@ -37,7 +37,6 @@ public  class LoginManager : MonoBehaviour
         {
             var response = JsonConvert.DeserializeObject<LoginResponse>(request.downloadHandler.text);
             SessionId = response.sessionId;
-            Review.id = response.sessionId;
             Debug.Log($"[Login Success] Session ID: {SessionId}");
             
         }
