@@ -7,10 +7,12 @@ using System.Collections.Generic;
 public class Review : MonoBehaviour
 {
     private string reviewUrl;
+    public static string result;
 
     public void ReviewStart() // 리뷰가 필요할 시점에 이거 불러주시면 됩니다. 
     {
         reviewUrl = "http://172.16.16.170:8081/api/game/"+LoginManager.SessionId+"/review"; 
+        
         StartCoroutine(GetReview());
         print(reviewUrl);
     }
@@ -36,6 +38,7 @@ public class Review : MonoBehaviour
             }
 
             Debug.Log("해설 내용: " + response.reviewContent.explanations);
+            result = response.reviewContent.explanations;
         }
         else
         {

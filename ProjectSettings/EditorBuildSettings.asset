@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/StartScence.unity
+    guid: c12a8fd63b3a4644fa9520d3c365582c
+  - enabled: 1
+    path: Assets/Scenes/JeongA.unity
+    guid: 260a4a6db09ba4e44a37e27815ae7fd0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f32a9794242ac6f43985ee6be06e550f, type: 2}
