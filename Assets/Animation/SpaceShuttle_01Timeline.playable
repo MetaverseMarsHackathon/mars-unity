@@ -22,10 +22,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 9.35
+    m_Start: 8.383333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -3090174779018049948}
-    m_Duration: 2.033333333333333
+    m_Duration: 1.5166666666666675
     m_TimeScale: 1
     m_ParentTrack: {fileID: -9191059125529761555}
     m_EaseInDuration: 0
@@ -93,23 +93,6 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
---- !u!114 &-7614896805016806077
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: a3fc296ff4688a74eada55e707abde16, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
 --- !u!114 &-6574065402263363769
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,22 +187,58 @@ MonoBehaviour:
     m_Start: 3.05
     m_ClipIn: 0
     m_Asset: {fileID: -911245692824576157}
-    m_Duration: 5.4
+    m_Duration: 4.258333333332668
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6574065402263363769}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: 1.75
-    m_BlendOutDuration: 2.6833333333333327
+    m_BlendOutDuration: 1.5416666666660008
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -237,16 +256,34 @@ MonoBehaviour:
     m_Start: 5.766666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 5528732485375122621}
-    m_Duration: 3.583333333333333
+    m_Duration: 2.6166666666666663
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6574065402263363769}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 2.6833333333333327
+    m_BlendInDuration: 1.5416666666660008
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -323,8 +360,8 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: -7614896805016806077}
-    m_Duration: 3.944489795918367
+    m_Asset: {fileID: 3309692938549449404}
+    m_Duration: 8.383333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5582072257618173229}
     m_EaseInDuration: 0
@@ -388,7 +425,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: landing
+    m_DisplayName: landing2
   m_Markers:
     m_Objects: []
   m_TrackProperties:
@@ -637,7 +674,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 4386660741334388204}
-    m_Duration: 9.35
+    m_Duration: 8.383333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1829712603219551470}
     m_EaseInDuration: 0
@@ -705,6 +742,23 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
+--- !u!114 &3309692938549449404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 8300000, guid: 41801cd4f3d8a014bae174ba559ea76c, type: 3}
+  m_Loop: 0
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 1
 --- !u!114 &3369817370930313738
 MonoBehaviour:
   m_ObjectHideFlags: 1
